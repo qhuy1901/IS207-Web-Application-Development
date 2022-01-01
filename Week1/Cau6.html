@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Câu 6</title>
+    <style>
+        body{
+            background-color:  #FFEDCA;
+        }
+
+        .col1{
+            color: blueviolet;
+            width: 150px;
+        }
+        input[type="text"]{
+            color: gray;
+        }
+        tr{
+            height: 30px;
+        }
+
+    </style>
+</head>
+<body>
+    <H1 style="text-align: center;">Phiếu đăng ký tham gia dự thưởng</H1>
+    <table align="center" border="2px">
+        <tr>
+            <td class="col1">Họ và tên</td>
+            <td>
+                <input type="text" value="Nguyễn Văn A">
+            </td>
+        </tr>
+
+        <tr>
+            <td class="col1">Địa chỉ</td>
+            <td>
+                <input type="text" value="abc, xyz, jqk" size="60">
+            </td>
+        </tr>
+
+        <tr>
+            <td class="col1">Điện thoại</td>
+            <td>
+                <input type="text" value="09xxxxxxxxxx">
+            </td>
+        </tr>
+
+        <tr>
+            <td class="col1">Phái</td>
+            <td>
+                <input type="radio" name="sex" value="Nam" checked> Nam
+                <input type="radio" name="sex" value="Nu">Nữ
+            </td>
+        </tr>
+
+        <tr>
+            <td class="col1">Sản phẩm</td>
+            <td>
+                <textarea name="20" id="" cols="22" rows="4">Iphone 11 Pro Max Samsung Glaxy Note 20 Xiaomi Redmin K30 OPPO A53
+                </textarea>
+            </td>
+        </tr>
+
+        <tr>
+            <td class="col1">Số dự đoán</td>
+            <td>
+                <input type="number" min="0" max="10" step="1" value="5" size="6">
+            </td>
+        </tr>
+
+        <tr>
+            <td colspan="2" align="center">
+                <input type="submit" value="Đăng ký">
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.min.js"></script>
+
+</head>
+<body>
+    <p>don't print this to pdf</p>
+<div id="pdf">
+  <p>
+    <p size="3" color="red">print this to pdf</p>
+  </p>
+</div>
+
+<button onclick="printDiv('pdf','Title')">print div</button>
+
+<button onclick="saveDiv('pdf','Title')">save div as pdf</button>
+    <script type= "text/javascript">
+       var doc = new jsPDF();
+        function saveDiv(divId, title) {
+            doc.fromHTML(document.getElementById(divId).innerHTML);
+            doc.save('div.pdf');
+        }
+     </script>
+</body>
+</html>

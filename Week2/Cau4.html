@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week 2 - Câu 4</title>
+</head>
+<style>
+    th,td{
+        height: 30px;
+    }
+    .cho-ngoi{
+        width:100px;
+    }
+    select{
+        width: 200px;
+    }
+</style>
+<body>
+    <table align="center" border ="1px" width="500px">
+        <thead>
+            <tr>
+                <th colspan="2">Mua vé</th>
+            </tr>
+        </thead>
+        <tbody>
+            <form name="thong_tin">
+                <tr>
+                    <td>Ngày chiếu</td>
+                    <td align="left"><input type="text" id="ngay_chieu" placeholder="dd/mm/yyyy"></td>
+                </tr>
+
+                <tr>
+                    <td>Phim</td>
+                    <td align="left"> 
+                        <select id="phim">
+                            <option value="1">Phim</option>
+                            <option value="1">Yêu em bất chấp</option>
+                            <option value="1">Tháng năm rực rỡ</option>
+                            <option value="1">Và em sẽ đến </option>
+                            <option value="1">Chuyện ma lúc 3 giờ sáng</option>
+                        </select>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Suất chiếu</td>
+                    <td align="left"> 
+                        <select id="suat_chieu">
+                            <option value="0">Suất chiếu</option>
+                            <option value="45000">9h – 12h</option>
+                            <option value="45000">13h – 16h</option>
+                            <option value="55000">17h – 20h</option>
+                            <option value="35000">22h – 2h</option>
+                        </select>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Phòng chiếu</td>
+                    <td align="left"> 
+                        <select id="phong_chieu">
+                            <option value="1">Đồng</option>
+                            <option value="1.2">Bạc</option>
+                            <option value="1.5">Vàng</option>
+                            <option value="2">Kim Cương</option>
+                        </select>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Chọn chỗ ngồi</td>
+                    <td align="left"> 
+                        <select id="cho_ngoi" size="4" class="cho-ngoi" multiple>
+                            <option value="1">Ghế 01</option>
+                            <option value="1">Ghế 02</option>
+                            <option value="1">Ghế 03</option>
+                            <option value="1">Ghế 04</option>
+                            <option value="1">Ghế 05</option>
+                            <option value="1">Ghế 06</option>
+                        </select>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td colspan="2" align="center">
+                        <button onclick="tao_hoa_don()">Mua vé</button>
+                    </td>
+                </tr>
+            </form>
+        </tbody>
+    </table>
+
+    <script>
+        function tao_hoa_don()
+        {
+            var myWindow = window.open("", "Vé xem phim", "width=400,height=450");
+            var noi_dung = "";
+            noi_dung += "<table align='center' class='hoa-don' style='width:350; border:1px solid'><tr><th colspan='2'>Thông tin vé</th><tr>";
+            noi_dung += "<tr><td>Khách hàng</td><td>Nguyễn Văn A</td></tr>";
+            noi_dung += "<tr><td>Ngày chiếu</td><td>" + ngay_chieu.value + "</td></tr>";
+            noi_dung += "<tr><td>Phim</td><td>" + phim.selectedOptions[0].innerText + "</td></tr>";
+            noi_dung += "<tr><td>Xuất chiếu/td><td>" + suat_chieu.selectedOptions[0].innerText + "</td></tr>";
+            noi_dung += "<tr><td>Phòng chiếu</td><td>" + phong_chieu.selectedOptions[0].innerText +"</td></tr>";
+            noi_dung += "<tr><th align='center'>Ghế</th><th align='center'>Giá vé</th></tr>";
+            var tien_ve = suat_chieu.selectedOptions[0].value * phong_chieu.selectedOptions[0].value;
+            var tong_tien = 0;
+            for(var i = 0; i < cho_ngoi.length; i++)
+            {
+                if(cho_ngoi[i].selected)
+                {
+                    noi_dung += "<tr><td align='center'> " + cho_ngoi[i].innerText +"</td><td align='center'>" + tien_ve +" đ</td></tr>";
+                    tong_tien += tien_ve;
+                }
+            }
+            noi_dung += "<tr><th align='center'>Tổng tiền</th><th align='center'>"+ tong_tien +" đ</th></tr>";
+            noi_dung += "</table>";
+            myWindow.document.write(noi_dung);
+        }
+    </script>
+</body>
+</html>

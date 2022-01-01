@@ -1,0 +1,174 @@
+<!-- CHƯA XONG -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week 2 - Câu 5</title>
+    <style>
+        .bt-xoa{
+            text-align: center;
+        }
+        th, td{
+            height: 30px;
+            font-weight: bold;
+        }
+        .thanh-tien{
+            width: 100px;
+        }
+    </style>
+    <!-- <script>
+        const input = don_gia;
+        const log = thanh_tien;
+    
+        // input.addEventListener('change', updateValue);
+    
+        // function updateValue(e) {
+        //     log.textContent = e.target.value;
+        // }
+        // $('#don_gia').on('input',function(e){
+        //     alert('Changed!')
+        // });
+    </script> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        // function cal_thanhtien(so_luong, don_gia, thanh_tien)
+        // {
+        //     var kq = so_luong * don_gia;
+        //     thanh_tien.innerHTML = kq;
+        //     tong_tien.innerHTML = Number(thanh_tien1.innerText) + Number(thanh_tien2.innerText);
+        // }
+
+        $(document).ready(function () {
+            // $("#don_gia1").keyup(function(){
+            //     cal_thanhtien(so_luong.value, don_gia1.value, thanh_tien1);
+            // });
+
+            // $("#don_gia2").keyup(function(){
+            //     cal_thanhtien(so_luong.value, don_gia2.value, thanh_tien2);
+            //     //$("#thanh_tien").text(kq);
+            // });
+
+            // $("input[name='don-gia']").keyup(function(){
+            //     //var soluong = $(this).parent().parent().get
+            //     alert('don gia');
+            // });
+
+            // $("input[type='number']").change(function(){
+            //     alert(Number($("#so_luong").value));
+            // });
+
+            // $("#btn-xoa-1").click(function(){
+            //     $("#sp1").remove();
+            //     tong_tien.innerHTML = Number(thanh_tien2.innerText)
+            // });
+
+            // $("#btn-xoa-2").click(function(){
+            //     $("#sp2").remove();
+            //     tong_tien.innerHTML = Number(thanh_tien1.innerText)
+            // });
+
+
+            $(".so-luong").on('input', function(){
+                var $soluong = $(this).val();
+                var $parent = $(this).parents('tr');
+                var $dongia = $parent.find('.don-gia').val();
+                var $thanhtien = $parent.find('.thanh-tien');
+                $thanhtien.text($soluong * $dongia);
+            });
+
+            $(".don-gia").on('input', function(){
+                var $dongia = $(this).val();
+                var $parent = $(this).parents('tr');
+                var $soluong = $parent.find('.so-luong').val();
+                var $thanhtien = $parent.find('.thanh-tien');
+                $thanhtien.text($soluong * $dongia);
+            });
+
+            $('body').on('DOMSubtreeModified', '.don-gia', function(){
+                var $dongia = $(this).val();
+                var $parent = $(this).parents('tr');
+                var $soluong = $parent.find('.so-luong').val();
+                var $thanhtien = $parent.find('.thanh-tien');
+                $thanhtien.text($soluong * $dongia);
+            });
+
+            // $(".thanh-tien").on('change', function(){
+            //     alert('chua thay doi tong tien');
+            // });
+            $('body').on('DOMSubtreeModified', '.thanh-tien', function(){
+                var sum = 0;
+                $('.thanh-tien').each(function() {
+                    sum += Number($(this).text());
+                });
+                $('#tong-tien').text(sum);
+            });
+
+            // $('.thanh-tien').change(function(){
+            //     alert('chua thay doi tong tien');
+            // });
+
+            $("input[type='button']").click(function(){
+                $(this).parent().parent().remove();
+                var sum = 0;
+                $('.thanh-tien').each(function() {
+                    sum += Number($(this).text());
+                });
+                $('#tong-tien').text(sum);
+            });
+
+        });
+     </script>
+</head>
+<body>
+    <table bgcolor="#FFEDCA" border="1px">
+        <thead>
+            <tr>
+                <th>Sản phẩm</th>
+                <th>Số lượng</th>
+                <th>Đơn giá</th>
+                <th>Thành tiền</th>
+                <th>Chức năng</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                <td>IPhone 11 Pro Max 64GB</td>
+                <td>
+                    <input type="number" class="so-luong" min=0 value="2">
+                </td>
+                <td>
+                    <input type="text" class="don-gia" value="31000000">
+                </td>
+                    <td class="thanh-tien">62000000</td>
+                <td>
+                    <input type="button" value="Xóa"></input>
+                </td>
+            </tr>
+
+            <tr>
+                <td>Samsung Galaxy Note 10+</td>
+                <td>
+                    <input type="number" class="so-luong" min=0 value="1">
+                </td>
+                <td>
+                    <input type="text" class="don-gia"  value="16000000">
+                </td>
+                    <td class="thanh-tien">16000000</td>
+                <td>
+                    <input type="button" value="Xóa"></input>
+                </td>
+            </tr>
+
+            <tr>
+                <td colspan="3">Tổng tiền</td>
+                <td colspan="2" id="tong-tien">78000000</td>
+            </tr>
+        </tbody>
+    </table>
+
+    
+</body>
+</html>

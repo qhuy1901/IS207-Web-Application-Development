@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week 2 - Câu 1</title>
+    <style>
+        table{
+            width:420px;
+            border: 2px solid blue;
+            column-span: all;
+        }
+        .table-sub-header{
+            color: blue;
+        }
+        .table-header{
+            text-align: center;
+            height: 80px;
+        }
+    </style>
+</head>
+<body>
+    <table bgcolor="yellow" align="center" border ="3px">
+        <thead>
+            <tr>
+                <th colspan="3" class="table-header">THỰC ĐƠN</th>
+            </tr>
+
+            <tr>
+                <th class="table-sub-header">Thức ăn</th>
+                <th class="table-sub-header">Nước uống</th>
+                <th class="table-sub-header">Thời điểm</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                <td>
+                    <select id="thuc_an" size="7" multiple>
+                        <option value="Bún bò">Bún bò</option>
+                        <option value="Hủ tiếu">Hủ tiếu</option>
+                        <option value="Bánh canh">Bánh canh</option>
+                        <option value="Phở bò">Phở bò</option>
+                        <option value="Nuôi">Nuôi</option>
+                        <option value="Bánh mì thịt">Bánh mì thịt</option>
+                        <option value="Bánh cuốn">Bánh cuốn</option>
+                    </select>
+                </td>
+
+                <td>
+                    <select id="nuoc_uong" size="7" multiple>
+                        <option value="Cà phê">Cà phê</option>
+                        <option value="Cà phê sữa đá">Cà phê sữa đá</option>
+                        <option value="Chanh dây">Chanh dây</option>
+                        <option value="Chanh muối">Chanh muối</option>
+                        <option value="Xí muội">Xí muội</option>
+                        <option value="Sữa tươi">Sữa tươi</option>
+                        <option value="Cam vắt">Cam vắt</option>
+                    </select>
+                </td>
+
+                <td align="left">
+                    <input type="radio" id="ban_ngay" name="thoi-diem" checked>Ban ngày<br>
+                    <input type="radio" id="ban_dem" name="thoi-diem">Ban đêm<br>
+                </td>
+            </tr>
+
+            <tr>
+                <td colspan="3" align="center">
+                    <!-- <button onclick="tinh_luong()">Tính lương tháng</button> -->
+                    <button onclick="tinh_hoa_don()">Tính tiền</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <br>
+    <span id ="hoa_don"></span>
+       
+    <script>
+        function tinh_tien(ten_mon)
+        {
+            var tien = 0;
+            switch(ten_mon) 
+            {
+                case 'Bún bò':
+                    tien = 20000;
+                    break;
+                case 'Hủ tiếu': case 'Nuôi': case 'Bánh cuốn':
+                    tien = 15000;
+                    break;
+                case 'Bánh canh':
+                    tien = 17000;
+                    break;
+                case 'Phở bò':
+                    tien = 19000;
+                    break;
+                case 'Bánh mì thịt':
+                    tien = 12000;
+                    break;
+                case 'Cà phê':
+                    tien = 12000;
+                    break;
+                case 'Cà phê sữa đá':
+                    tien = 15000;
+                    break;
+                case 'Chanh dây':
+                    tien = 13000;
+                    break;
+                case 'Chanh muối':
+                    tien = 12000;
+                    break;
+                case 'Xí muội':
+                    tien = 14000;
+                    break;
+                case 'Sữa tươi':
+                    tien = 13000;
+                    break;
+                case 'Cam vắt':
+                    tien = 17000;
+                    break;
+                default:
+                    tien = 0;
+            } 
+            return tien;  
+        }
+
+        function tinh_hoa_don() 
+        {
+            var ten_mon = "";
+            var tong_tien = 0;
+            str = "<table bgcolor='#A1FFFF' border='1px' align='center' class='hoa-don'><tr style='color:#0101FF'><th>Các món đã dùng</th> <th>Tiền</th><tr>";
+            for(var i = 0; i < thuc_an.length; i++)
+            {
+                if(thuc_an[i].selected)
+                {
+                    var tien = tinh_tien(thuc_an[i].value);
+                    str += "<tr><td> " + thuc_an[i].innerText +"</td><td>" + tien +"</td> </tr>";
+                    tong_tien += tien;
+                }
+            }
+
+            for(var i = 0; i < nuoc_uong.length; i++)
+            {
+                if(nuoc_uong[i].selected)
+                {
+                    var tien = tinh_tien(nuoc_uong[i].value);
+                    str += "<tr><td> " + nuoc_uong[i].value +"</td><td>" + tien +"</td> </tr>";
+                    tong_tien += tien;
+                }
+            }
+
+            if(ban_dem.checked)
+                tong_tien = tong_tien * 1.1;
+
+            str +="<tr><td>Tổng tiền</td><td>" + tong_tien + " đồng</td> </table>";
+            hoa_don.innerHTML = str;
+        }
+    </script>
+</body>
+</html>

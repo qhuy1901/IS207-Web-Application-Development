@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img{
+            width: 400px;
+        }
+        td{
+            text-align: center;
+        }
+        #gioi-hang{
+            border: 1px solid;
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $(".btn").click(function(){
+                var attr = $(this).parent().children("img").attr("alt")
+                var gia = $(this).parent().children("input").val()
+                var tt = $("#tt").text()
+                // alert(attr + "  " + gia)
+                var tr = "<tr><td>"+attr+"</td><td>"+gia+"</td></tr><button class='btn-xoa'>delete</button>"
+                $("#gio-hang tr:first").after(tr)
+                $("#tt").text(parseInt(tt)+parseInt(gia))
+            })
+        })
+    </script>
+</head>
+<body>
+    <table>
+        <tr>
+            <td>
+                <img src="iphone.jpg" alt="iPhone 12" >
+            </td>
+            <td>
+                <img src="samsung.jpg" alt="Samsung S20">
+            </td>
+            <td>
+                <img src="oppo.jpg" alt="Reno6">
+            </td>
+        </tr>
+        <tr>
+            <td><button class="btn">Mua hàng</button></td>
+            <td><button class="btn">Mua hàng</button></td>
+            <td><button class="btn">Mua hàng</button></td>
+        </tr>
+    </table>
+    <h3>Giỏ hàng</h3>
+        <table id="gio-hang">
+            <tr>
+                <th>Tên hàng</th>
+                <th>Giá</th>
+            </tr>
+            <tr>
+                <td>Tổng tiền</td>
+                <td id="tt">0</td>
+            </tr>
+        </table>
+</body>
+</html>

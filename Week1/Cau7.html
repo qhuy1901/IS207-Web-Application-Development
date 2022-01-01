@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 7</title>
+    <style>
+        .textInBox{
+            color: blue;
+            width: 250px;
+        }
+        h1{
+            text-align: center;
+        }
+        tr{
+            height: 30px;;
+        }
+        table{
+            border-collapse:collapse;
+            border:1px solid black;
+        }
+        fieldset{
+            width: 50%;
+            color: blue;
+            height: fit-content;
+        }
+        
+    </style>
+</head>
+<body bgcolor="#FFDD99">
+    <h1>
+        <b>Phiếu đăng ký tour du lịch</b>
+    </h1>
+
+    <table border="4px" align="center" width="650px">
+        <tr>
+            <td class="textInBox">Họ và tên khách</td>
+            <td><input type="text" placeholder="Nguyễn Văn A"></td>
+        </tr>
+
+        <tr>
+            <td class="textInBox">Địa chỉ</td>
+            <td><input type="text" placeholder="abc, xyz, jqk" size="50"></td>
+        </tr>
+
+        <tr>
+            <td class="textInBox">Điện thoại</td>
+            <td><input type="text" placeholder="09xxxxxxxx"></td>
+        </tr>
+        <tr>
+            <td class="textInBox">Tour</td>
+            <td>
+                <select name="Tour" id="">
+                    <option value="1">Chọn tour</option>
+                    <option value="2">Hà Nội - Hạ Long - Tuần Châu (10.000.000 đ/ người)</option>
+                    <option value="2">Hà Nội - Sapa (6.000.000 đ/ người)</option>
+                    <option value="2">Đà Nẵng - Hội An (3.000.000 đ/ người)</option>
+                    <option value="2">Buôn Mê Thuộc - Kom Tum (2.000.000 đ/ người)</option>
+                    <option value="2">TP.HCM - Nha Trang (3.500.000 đ/ người)</option>
+                    <option value="2">TP.HCM - Cần Thơ - Cà Mau (2.500.000 đ/ người)</option>
+                </select>
+            </td>
+        </tr>
+
+        <tr>
+            <td colspan="2">
+                <fieldset>
+                    <legend>Số lượng đoàn khách</legend>
+                    <p>Người lớn <input type="text" value="1" size="5"> Trẻ em <input type="text" value="0" size="5"></p>
+                </fieldset>
+            </td>
+        </tr>
+
+        <tr>
+            <td class="textInBox">Ghi chú</td>
+            <td>
+                <textarea name="GhiChu" id="" cols="45" rows="8"></textarea>
+            </td>
+        </tr>
+
+        <tr>
+            <td colspan="2" align="center">
+                <input type="submit" name="submit" id="" value="Đăng ký">
+            </td>
+        </tr>
+
+    </table>
+</body>
+</html>

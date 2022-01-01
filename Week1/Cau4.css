@@ -1,0 +1,40 @@
+body{
+    background-color: #FFEDCA;
+}
+
+thead{
+    background-color: #CC6600;
+    color: #FFFFFF;
+    text-align: center;
+}
+
+.evenBox{
+    background-color: #FFEDCA;
+    
+}
+/* Xem file này 
+https://webcoban.vn/css/demo?file=3147
+ */
+.oddBox{
+    background-color: #FFFFFF;
+}
+
+/* col#STTColumn{
+    text-align: center;
+    color:#8A2BE2;
+} */
+
+h1{
+    color:#8A2BE2;
+    text-align: center;
+}
+
+.STT{
+    text-align: center;
+    width: 80px;
+}
+
+.tenMonAn{
+    text-align: left;
+    width: 600px;
+}

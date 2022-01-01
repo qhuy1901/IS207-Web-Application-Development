@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week 2 - Câu 1</title>
+    <style>
+        table{
+            width:420px;
+            border: 2px solid blue;
+        }
+    </style>
+</head>
+<body>
+    <table bgcolor="#FECD92" align="center" border ="3px">
+        <tbody>
+            <tr>
+                <td>Lương</td>
+                <td align="left"><input type="text" id="luong" value="1000000"></td>
+            </tr>
+
+            <tr>
+                <td>Hệ số lương</td>
+                <td align="left"> <input type="number" id ="he_so_luong" min="0" max="10" step="0.1" value="3.2" size="6"></td>
+            </tr>
+
+            <tr>
+                <td colspan="2" align="center">
+                    <!-- <button onclick="tinh_luong()">Tính lương tháng</button> -->
+                    <button onclick="tinh_luong()">Tính lương tháng</button>
+                </td>
+            </tr>
+
+            <tr>
+                <td>Lương tháng</td>
+                <td align="left"><span id="luong_thang"></span></td>
+            </tr>
+        </tbody>
+    </table>
+       
+    <script>
+        function tinh_luong() 
+        {
+            var x = luong.value * he_so_luong.value;
+            luong_thang.innerHTML = x;
+        }
+    </script>
+</body>
+</html>

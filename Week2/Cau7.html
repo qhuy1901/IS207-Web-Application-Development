@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week 2 - Câu 7</title>
+    <style>
+        /* .table-bordered {
+            border: 10px;
+        }  */
+        
+        /* table {
+            width: 50%;
+            border-collapse: collapse;
+        } */
+        tbody tr td:first-child{
+            font-weight: bold;
+        }
+    </style>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function (){
+            $("input[type='submit']").click(function(){
+                var myWindow = window.open("", "Thông tin CV", "width=500,height=650");
+                var noi_dung = "<link href='https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css' rel='stylesheet' integrity='sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC' crossorigin='anonymous'>";
+                noi_dung +="<div style='width: 500px;'>"
+                noi_dung += "<p style='font-size:30px;'>Nguyễn Văn C<p>";
+                noi_dung += "<p>"+ $("#nghe-nghiep").val() +"</p>";
+                noi_dung += "<p>"+ $("#dia-chi").val() +"</p>";
+                noi_dung += "<p>"+ $("#email").val() +"</p>";
+                noi_dung += "<p>"+ $("#sdt").val() +"</p>";
+                noi_dung += "<hr>";
+                noi_dung += "<p><b>Kỹ năng</b></p>";
+                noi_dung += "</div>";
+                $('table[name="bang-ky-nang"]').each(function() {
+                    var tenKyNang = $(this).find('.ten-ky-nang').val();
+                    var mucDoKyNang = $(this).find('.muc-do-ky-nang').val();
+                    noi_dung += "<p>"+ tenKyNang +"</p>";
+                    noi_dung += "<p><input type='range'  min='0' max='100' value='" + Number(mucDoKyNang) + "' disabled></p>";
+                });
+                myWindow.document.write(noi_dung)
+            });
+            
+            $("#nut-them").click(function()
+            {   
+                var bangkynang = "<table class='table table-bordered' name='bang-ky-nang'><tr><td>Tên kỹ năng</td><td><input type='text' class='ten-ky-nang' placeholder='Node JS'></td></tr>";
+                bangkynang += "<tr><td>Mức độ</td><td><input type='range' class='muc-do-ky-nang' min='0' max='100'></td></tr></table>";
+                $("#nut-them").before(bangkynang);
+            });
+            
+        });
+    </script>
+</head>
+<body>
+
+    <table class="table table-bordered" style="width: 600px;">
+        <thead>
+            <tr>
+                <th colspan="2" style="text-align: center;">Đăng ký CV</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Họ và tên</td>
+                <td>
+                    <input type="text" placeholder="Nguyễn Văn C">
+                </td>
+            </tr>
+
+            <tr>
+                <td>Địa chỉ</td>
+                <td>
+                    <input type="text" placeholder="TP.HCM" id="dia-chi">
+                </td>
+            </tr>
+
+            <tr>
+                <td>Điện thoại</td>
+                <td>
+                    <input type="text" id="sdt" placeholder="0900000000">
+                </td>
+            </tr>
+
+            <tr>
+                <td>Email</td>
+                <td>
+                    <input type="email" id="email" placeholder="ex@mail.com">
+                </td>
+            </tr>
+
+            <tr>
+                <td>Nghề nghiệp</td>
+                <td>
+                    <input type="text" id="nghe-nghiep" placeholder="Designer">
+                </td>
+            </tr>
+
+            <tr>
+                <td>Ảnh đại diện</td>
+                <td>
+                    <input type="file">
+                </td>
+            </tr>
+
+            <tr>
+                <td>Kỹ năng</td>
+                <td>
+                    <table class="table table-bordered" name="bang-ky-nang">
+                        <tr>
+                            <td>Tên kỹ năng</td>
+                            <td>
+                                <input type="text" class="ten-ky-nang" placeholder="Node JS">
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>Mức độ</td>
+                            <td>
+                                <input type="range" class="muc-do-ky-nang" min="0" max="100">
+                            </td>
+                        </tr>
+                    </table>
+                    <button href="" id="nut-them">Thêm</button>
+                </td>
+            </tr>
+
+            <tr>
+                <td colspan="2" style="text-align: center;">
+                    <input type="submit" value="Đăng ký">
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+</body>
+</html>

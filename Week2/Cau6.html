@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 7</title>
+    <style>
+        .textInBox{
+            color: blue;
+            width: 250px;
+        }
+        h1{
+            text-align: center;
+        }
+        tr{
+            height: 30px;;
+        }
+        table{
+            border-collapse:collapse;
+            border:1px solid black;
+        }
+        fieldset{
+            width: 50%;
+            color: blue;
+            height: fit-content;
+        }
+        
+    </style>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function (){
+            $("input[type='submit']").click(function(){
+                var myWindow = window.open("", "Thông tin đăng kí", "width=500,height=650");
+                var noi_dung = "<table style='border: solid 1px'> <thead> <tr> <th colspan='2'>Thông tin đăng kí </th></tr></thead>";
+                var today = new Date();
+                var tenkhach = $("#ten-khach").val();
+                var diachi = $("#dia-chi").val();
+                var tour = $("#tour :selected");
+                var ghichu = $("#ghi-chu").val();
+                noi_dung += "<tbody><tr><td>Ngày đăng ký:</td><td>" + today + "</td><tr>";
+                noi_dung += "<tr><td>Nhân viên:</td><td>Họ tên nhân viên</td><tr>";
+                noi_dung += "<tr><td>Họ tên khách</td><td>"+ tenkhach + "</td><tr>";
+                noi_dung += "<tr><td>Địa chỉ:</td><td>"+ diachi + "</td><tr>";
+                noi_dung += "<tr><td>Tour</td><td>"+ tour.text() + "</td><tr>";
+                noi_dung += "<tr><td>Ghi chú:</td><td>"+ ghichu + "</td><tr>";
+                noi_dung +=" </tbody></table> <br>";  
+
+                var slnguoilon = $("#slnguoilon").val();
+                var sltreem = $("#sltreem").val();
+                var tongtien = (tour.val() / 2) * sltreem + tour.val() * slnguoilon;
+                noi_dung += "<table style='border: solid 1px'><tbody><tr><td colspan='2'>Số lượng đoàn khách:</td><tr></tbody>";
+                noi_dung += "<tr><th></th><th><b>SL</th><th><b>Đơn giá</th><th><b>Thành tiền</th></tr>";
+                noi_dung += "<tbody><tr><td>Người lớn:</td><td>" + slnguoilon + "</td><td>" + tour.val() + "</td><td>" + tour.val() * slnguoilon + "</td><tr>";
+                noi_dung += "<tbody><tr><td>Trẻ em:</td><td>" + sltreem + "</td><td>" + tour.val() / 2 + "</td><td>" + (tour.val() / 2) * sltreem + "</td><tr>";
+                noi_dung += "<tbody><tr><td colspan='2' style='text-align: center;'><b>Tổng tiền:</b></td><td colspan='2'  style='text-align: right;'><b>" + tongtien + " đ</b></td><tr>";
+                noi_dung +=" </tbody></table>"; 
+                myWindow.document.write(noi_dung) });
+            
+        });
+    </script>
+</head>
+<body bgcolor="#FFDD99">
+    <h1>
+        <b>Phiếu đăng ký tour du lịch</b>
+    </h1>
+
+    <table border="4px" align="center" width="650px">
+        <tr>
+            <td class="textInBox">Họ và tên khách</td>
+            <td><input type="text" id="ten-khach" placeholder="Nguyễn Văn A"></td>
+        </tr>
+
+        <tr>
+            <td class="textInBox">Địa chỉ</td>
+            <td><input type="text" id="dia-chi" placeholder="abc, xyz, jqk" size="50"></td>
+        </tr>
+
+        <tr>
+            <td class="textInBox">Điện thoại</td>
+            <td><input type="text" placeholder="09xxxxxxxx"></td>
+        </tr>
+        <tr>
+            <td class="textInBox">Tour</td>
+            <td>
+                <select name="Tour" id="tour">
+                    <option value="1">Chọn tour</option>
+                    <option value="10000000">Hà Nội - Hạ Long - Tuần Châu</option>
+                    <option value="6000000">Hà Nội - Sapa</option>
+                    <option value="3000000">Đà Nẵng - Hội An</option>
+                    <option value="2000000">Buôn Mê Thuộc - Kom Tum</option>
+                    <option value="3500000">TP.HCM - Nha Trang</option>
+                    <option value="2500000">TP.HCM - Cần Thơ - Cà Mau</option>
+                </select>
+            </td>
+        </tr>
+
+        <tr>
+            <td colspan="2">
+                <fieldset>
+                    <legend>Số lượng đoàn khách</legend>
+                    <p>Người lớn <input type="text" value="1" id="slnguoilon" size="5"> Trẻ em <input type="text" id="sltreem" value="0" size="5"></p>
+                </fieldset>
+            </td>
+        </tr>
+
+        <tr>
+            <td class="textInBox">Ghi chú</td>
+            <td>
+                <textarea name="GhiChu" id="ghi-chu" cols="45" rows="8"></textarea>
+            </td>
+        </tr>
+
+        <tr>
+            <td colspan="2" align="center">
+                <input type="submit" name="submit" id="" value="Đăng ký">
+            </td>
+        </tr>
+
+    </table>
+</body>
+</html>

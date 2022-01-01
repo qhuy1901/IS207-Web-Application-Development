@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Câu 9</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-size: 20px;
+        } 
+
+        nav li{
+            display: inline-block;
+        }
+
+        li a{
+            display: block;
+            color: #FFD700;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        li a:hover{
+            background-color: #ADFF2F;
+        }
+
+        ul{
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            text-align: center;
+            background-color: #00008B;
+        }
+
+        .subnav{
+            position: static;
+            /* display: block; */
+        }
+
+        .subnav a:hover{
+            background-color: lightblue;
+        }
+
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="">Trang chủ</a></li>
+            <li>
+                <a href="">Du lịch</a>
+                <ul class="subnav">
+                    <li><a href="">Trong nước</a></li>
+                    <li><a href="">Quốc tế</a></li>
+                    <li><a href="">Tự chọn</a></li>
+                </ul>
+            </li>
+            <li><a href="">Tin tức</a></li>
+            <li><a href="">Khuyến mại</a></li>
+            <li><a href="">Liên hệ</a></li>
+        </ul>
+    </nav>
+</body>
+</html>
